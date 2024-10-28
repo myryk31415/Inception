@@ -1,0 +1,18 @@
+version: '0.69'
+services:
+  nginx:
+    container_name: nginx
+    build:
+      dockerfile: Dockerfile
+  mariadb:
+    container_name: mariadb
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./srcs/mariadb:/var/lib/mysql
+  wordpress:
+    container_name: wordpress
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./srcs/wordpress:/var/www/html
