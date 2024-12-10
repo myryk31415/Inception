@@ -1,25 +1,11 @@
-# You should look at the following URL's in order to grasp a solid understanding
-# of Nginx configuration files in order to fully unleash the power of Nginx.
-# http://wiki.nginx.org/Pitfalls
-# http://wiki.nginx.org/QuickStart
-# http://wiki.nginx.org/Configuration
-#
-# Generally, you will want to move this file somewhere, and start with a clean
-# file but keep this around for reference. Or just disable in sites-enabled.
-#
-# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
-##
-
 # Default server configuration
 #
 server {
         listen 443 ssl default_server;
         listen [::]:443 ssl default_server;
-
-		ssl_protocols TLSv1.2 TLSv1.3;
-
-		ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
-		ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_certificate /etc/nginx/ssl/nginx-selfsigned.crt;
+        ssl_certificate_key /etc/nginx/ssl/nginx-selfsigned.key;
         # SSL configuration
         #
         # listen 443 ssl default_server;
@@ -55,6 +41,11 @@ server {
         	# proxy_cache_bypass $http_upgrade;
         }
 
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass wordpress:9000;
+        }
+
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
         #
         #location ~ \.php$ {
@@ -73,23 +64,3 @@ server {
         #       deny all;
         #}
 }
-
-
-# Virtual Host configuration for example.com
-#
-# You can move that to a different file under sites-available/ and symlink that
-# to sites-enabled/ to enable it.
-#
-#server {
-#       listen 80;
-#       listen [::]:80;
-#
-#       server_name example.com;
-#
-#       root /var/www/example.com;
-#       index index.html;
-#
-#       location / {
-#               try_files $uri $uri/ =404;
-#       }
-#}
