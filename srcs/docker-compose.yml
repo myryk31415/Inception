@@ -47,6 +47,8 @@ services:
       - mariadb:/var/lib/mysql
     env_file:
       - .env
+    expose:
+      - "3306"
   wordpress:
     container_name: wordpress
     build:
@@ -61,3 +63,5 @@ services:
       - wordpress:/var/www/html
     env_file:
       - .env
+    expose:
+      - 9000
