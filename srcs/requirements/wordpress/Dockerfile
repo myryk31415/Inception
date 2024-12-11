@@ -12,6 +12,6 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 
 COPY ./conf/www.conf /etc/php/8.3/fpm/pool.d/.
 
-COPY ./conf/configure.sh /
+COPY ./tools/configure.sh /
 RUN chmod +x /configure.sh
 CMD ["/configure.sh"]
