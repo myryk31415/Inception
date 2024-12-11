@@ -3,6 +3,8 @@
 #db_user = User
 #db_pwd = User Password
 
+service mysql start;
+
 echo "CREATE DATABASE IF NOT EXISTS $db_name ;" > db1.sql
 echo "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_pass' ;" >> db1.sql
 echo "GRANT ALL PRIVILEGES ON $db_name.* TO '$db_user'@'%' ;" >> db1.sql
