@@ -3,7 +3,7 @@ all: build up
 
 build:
 	@mkdir -p home/padam/data/wordpress
-	@mkdir -p home/padam/data/mysql
+	@mkdir -p home/padam/data/mariadb
 	@sudo chown -R padam:padam /home/padam/data
 	@docker-compose  -f srcs/docker-compose.yml -d build
 
