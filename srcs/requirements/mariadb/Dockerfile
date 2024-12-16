@@ -7,4 +7,4 @@ COPY ./tools/script.sh /script.sh
 RUN chmod +x /script.sh
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld /var/lib/mysql
 
-ENTRYPOINT ["/script.sh"]
+CMD ["/bin/sh", "/script.sh"]
