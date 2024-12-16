@@ -7,12 +7,10 @@ RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes -days 100 -newkey rsa:4096 -keyout /etc/nginx/ssl/nginx-selfsigned.key \
 	-out /etc/nginx/ssl/nginx-selfsigned.crt -subj "/C=DE/O=42/OU=student/CN=padam.42.fr"
 
-RUN mkdir -p /var/run/nginx
-
 COPY ./conf/default /etc/nginx/sites-available/default
 
-RUN chmod 755 /var/www/html
-RUN chown -R www-data:www-data /var/www/html
+# RUN chmod 755 /var/www/html
+# RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 443
 
