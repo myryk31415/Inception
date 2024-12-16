@@ -1,5 +1,7 @@
 sleep 8
 
+cd /var/www/html
+
 if [ ! -f "./wp-config.php" ]; then
 	wp config create	--allow-root \
 						--dbname=$db_name \
