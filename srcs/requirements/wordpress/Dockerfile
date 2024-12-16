@@ -14,4 +14,4 @@ COPY ./conf/www.conf /etc/php/8.3/fpm/pool.d/.
 
 COPY ./tools/configure.sh /configure.sh
 RUN chmod +x /configure.sh
-CMD ["/configure.sh"]
+ENTRYPOINT ["/configure.sh"]
