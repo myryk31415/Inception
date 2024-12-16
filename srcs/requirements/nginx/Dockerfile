@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM debian:bullseye
 
 RUN apt update -y && apt upgrade -y && apt install -y nginx openssl
 RUN mkdir -p /etc/nginx/ssl

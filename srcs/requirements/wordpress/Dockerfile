@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM debian:bullseye
 
 RUN apt update -y && apt upgrade -y && apt install -y php7.4-fpm php7.4-mysql mariadb-client wget unzip
 
