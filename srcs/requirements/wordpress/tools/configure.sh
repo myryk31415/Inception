@@ -9,7 +9,7 @@ if [ ! -f "./wp-config.php" ]; then
 						--dbuser=$db_user \
 						--dbpass=$db_pass \
 						--dbhost=mariadb:3306 \
-						--path='/var/www/wordpress'
+						--path='/var/www/html'
 
 	wp core install		--allow-root \
 						--url=$wp_domain \
