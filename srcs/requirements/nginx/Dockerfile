@@ -1,7 +1,6 @@
 FROM alpine:3.20
 
-RUN apk update && apk upgrade && apk add nginx openssl
-
+RUN apt update -y && apt upgrade -y && apt install -y nginx openssl
 RUN mkdir -p /etc/nginx/ssl
 # orignal 2048
 RUN openssl req -x509 -nodes -days 100 -newkey rsa:4096 -keyout /etc/nginx/ssl/nginx-selfsigned.key \

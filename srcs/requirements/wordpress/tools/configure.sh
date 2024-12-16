@@ -29,4 +29,4 @@ if  [ ! -d "/run/php" ]; then
 	mkdir -p /run/php
 fi
 
-php-fpm8.3 -F
+php-fpm7.4 -F
