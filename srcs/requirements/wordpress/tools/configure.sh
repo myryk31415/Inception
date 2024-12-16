@@ -2,7 +2,8 @@
 sleep 8
 
 cd /var/www/html
-
+curl -O https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz --strip-components=1
 if [ ! -f "./wp-config.php" ]; then
 	wp config create	--allow-root \
 						--dbname=$db_name \
