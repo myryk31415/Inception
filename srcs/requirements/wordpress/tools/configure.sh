@@ -1,3 +1,4 @@
+#!/bin/bash
 sleep 8
 
 cd /var/www/html
