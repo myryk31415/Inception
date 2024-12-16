@@ -5,6 +5,10 @@
 
 mysqld_safe --skip-networking
 
+while ! mysqladmin ping --silent; do
+    sleep 5
+done
+
 echo "CREATE DATABASE IF NOT EXISTS $db_name ;" > db1.sql
 echo "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_pass' ;" >> db1.sql
 echo "GRANT ALL PRIVILEGES ON $db_name.* TO '$db_user'@'%' ;" >> db1.sql
