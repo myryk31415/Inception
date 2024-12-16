@@ -23,7 +23,7 @@ if [ ! -f "./wp-config.php" ]; then
 	wp user create		--allow-root \
 						$wp_user $wp_email \
 						--role=author \
-						--user_pass=$WP_PWD
+						--user_pass=$wp_pwd
 fi
 
 if  [ ! -d "/run/php" ]; then
