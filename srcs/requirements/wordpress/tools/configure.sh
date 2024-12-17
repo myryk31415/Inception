@@ -1,6 +1,5 @@
 #!/bin/bash
-# sleep 8
-/usr/local/bin/wait-for-it mariadb:3306 --timeout=30 --strict -- echo "MariaDB is up"
+sleep 20
 
 cd /var/www/html
 curl -O https://wordpress.org/latest.tar.gz
