@@ -1,37 +1,32 @@
 #!/bin/bash
-sleep 20
+# sleep 8
+/usr/local/bin/wait-for-it mariadb:3306 --timeout=30 --strict -- echo "MariaDB is up"
 
 cd /var/www/html
 curl -O https://wordpress.org/latest.tar.gz
 tar -xzf latest.tar.gz --strip-components=1
-# if [ ! -f "./wp-config.php" ]; then
-# 	wp config create	--allow-root \
-# 						--dbname=$db_name \
-# 						--dbuser=$db_user \
-# 						--dbpass=$db_pass \
-# 						--dbhost=mariadb:3306 \
-# 						--path='/var/www/html'
+if [ ! -f "./wp-config.php" ]; then
+	wp config create	--allow-root \
+						--dbname=$db_name \
+						--dbuser=$db_user \
+						--dbpass=$db_pass \
+						--dbhost=mariadb:3306 \
+						--path='/var/www/html'
 
-# 	wp core install		--allow-root \
-# 						--url=$wp_domain \
-# 						--title=$wp_title \
-# 						--admin_user=$wp_admin \
-# 						--admin_password=$wp_admin_pass \
-# 						--admin_email=$wp_admin_email \
-# 						--skip-email
+	wp core install		--allow-root \
+						--url=$wp_domain \
+						--title=$wp_title \
+						--admin_user=$wp_admin \
+						--admin_password=$wp_admin_pass \
+						--admin_email=$wp_admin_email \
+						--skip-email
 
-# 	wp user create		--allow-root \
-# 						$wp_user $wp_email \
-# 						--role=author \
-# 						--user_pass=$wp_pwd
-# fi
-if  [ ! -f "./wp-config.php" ]; then
-
-wp config create --allow-root   --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD --dbhost=mariadb:3306 --path='/var/www/html'
-wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
-wp user create $WP_USER $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
-
+	wp user create		--allow-root \
+						$wp_user $wp_email \
+						--role=author \
+						--user_pass=$wp_pwd
 fi
+
 if  [ ! -d "/run/php" ]; then
 	mkdir -p /run/php
 fi
