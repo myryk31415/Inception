@@ -12,13 +12,21 @@ if [ ! -f "./wp-config.php" ]; then
 						--dbhost=mariadb:3306 \
 						--path='/var/www/html'
 
-	wp core install		--allow-root \
-						--url=$wp_domain \
-						--title=$wp_title \
-						--admin_user=$wp_admin \
-						--admin_password=$wp_admin_pass \
-						--admin_email=$wp_admin_email \
-						--skip-email
+	# wp core install		--allow-root \
+	# 					--url=$wp_domain \
+	# 					--title=$wp_title \
+	# 					--admin_user=$wp_admin \
+	# 					--admin_password=$wp_admin_pass \
+	# 					--admin_email=$wp_admin_email \
+	# 					--skip-email
+
+	wp core install --allow-root \
+					--url="$wp_domain" \
+					--title="$wp_title" \
+					--admin_user="$wp_admin" \
+					--admin_password="$wp_admin_pass" \
+					--admin_email="$wp_admin_email" \
+					--skip-email
 
 	wp user create		--allow-root \
 						$wp_user $wp_email \
