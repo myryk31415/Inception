@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 15
+sleep 20
 
 cd /var/www/html
 curl -O https://wordpress.org/latest.tar.gz
