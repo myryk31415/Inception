@@ -3,7 +3,7 @@
 #db_user = User
 #db_pwd = User Password
 
-mysqld_safe --skip-networking
+mysqld_safe --skip-networking &
 
 while ! mysqladmin ping --silent; do
     sleep 5
