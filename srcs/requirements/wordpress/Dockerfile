@@ -1,6 +1,8 @@
 FROM debian:bullseye
 
 RUN apt update -y && apt upgrade -y && apt install -y php7.4-fpm php7.4-mysql mariadb-client wget unzip curl tar
+RUN curl -o /usr/local/bin/wait-for-it https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh && \
+    chmod +x /usr/local/bin/wait-for-it
 
 RUN mkdir -p /var/www/html
 # RUN wget https://wordpress.org/wordpress-6.7.1.zip -P /var/www/

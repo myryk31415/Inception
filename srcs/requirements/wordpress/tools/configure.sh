@@ -1,5 +1,9 @@
 #!/bin/bash
-sleep 20
+# sleep 20
+# Wait for MariaDB to be ready before proceeding
+/usr/local/bin/wait-for-it mariadb:3306 --timeout=30 --strict -- echo "MariaDB is up"
+
+# Continue with WordPress setup...
 
 cd /var/www/html
 curl -O https://wordpress.org/latest.tar.gz
