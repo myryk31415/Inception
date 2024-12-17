@@ -17,3 +17,5 @@ fclean:
 	@docker-compose -f srcs/docker-compose.yml down -v
 	@docker volume prune -f
 	@sudo rm -rf /home/padam/data
+
+re: fclean all
