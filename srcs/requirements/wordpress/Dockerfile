@@ -16,4 +16,4 @@ COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/.
 
 COPY ./tools/configure.sh /configure.sh
 RUN chmod +x /configure.sh
-CMD ["/bin/sh", "/configure.sh"]
+CMD ["/configure.sh"]
