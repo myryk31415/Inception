@@ -1,8 +1,11 @@
 # Default server configuration
 #
 server {
-        listen 443 ssl default_server;
-        listen [::]:443 ssl default_server;
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        listen 443 ssl;
+        listen [::]:443 ssl;
         server_name padam.42.fr localhost;
 
         ssl_protocols TLSv1.2 TLSv1.3;
