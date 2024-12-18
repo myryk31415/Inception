@@ -27,7 +27,7 @@ services:
       context: ./requirements/nginx
       dockerfile: Dockerfile
     ports:
-      - "433:443"
+      - "443:443"
     depends_on:
       - wordpress
     networks:
