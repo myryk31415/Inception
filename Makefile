@@ -10,8 +10,8 @@ build:
 up:
 	@docker-compose -f srcs/docker-compose.yml up
 
-stop:
-	@docker-compose -f srcs/docker-compose.yml stop
+down:
+	@docker-compose -f srcs/docker-compose.yml down
 
 fclean:
 	@docker-compose -f srcs/docker-compose.yml down -v
